@@ -8,6 +8,8 @@ Personal portfolio site for **Nishant Notani**, a **Lead Data Engineer** at DxFa
 
 GitHub username: **`Nishant-Notani`** (case-sensitive on GitHub display; URLs are case-insensitive).
 
+**Status:** ✅ Live at https://nishant-notani.github.io/ as of Apr 2026.
+
 ## Stack
 
 Pure static site. No build step, no framework, no package.json.
@@ -17,9 +19,11 @@ Pure static site. No build step, no framework, no package.json.
 - `script.js` — vanilla JS. Theme toggle (persists to localStorage), animated typing in hero, IntersectionObserver scroll-reveal, mobile nav.
 - `profile.png` — hero photo.
 - `.nojekyll` — empty file that disables Jekyll on GitHub Pages so files starting with `_` are not hidden.
+- `.gitignore` — excludes OS/editor cruft.
 - `robots.txt`, `sitemap.xml` — SEO.
-- `resume.pdf` and `Nishant Notani Resume May 2026.pdf` — résumé files. **NOT linked from the public site** (deliberate). They live in the repo for personal use; the user shares the dated copy directly via email/LinkedIn.
-- `github-profile/README.md` — the GitHub *profile* README (for `github.com/Nishant-Notani/Nishant-Notani`, the special profile repo). Not part of this site, just stored alongside it for convenience.
+- `resume.pdf` and `Nishant Notani Resume May 2026.pdf` — résumé files. **NOT linked from the public site** (deliberate — see Hard Rule #2). They live in the repo for personal use; the user shares the dated copy directly via email/LinkedIn.
+- `github-profile/README.md` — the GitHub *profile* README (for the special `Nishant-Notani/Nishant-Notani` repo). Stored alongside this repo for convenience; not part of the deployed site.
+- `CLAUDE.md` — this file.
 
 ## Hard rules
 
@@ -34,6 +38,7 @@ Pure static site. No build step, no framework, no package.json.
    - **Website:** "8+ direct reports" (data engineers and analysts).
    - **Resume:** "12+ direct reports (data engineers, analysts, and interns)".
    The 12+ count includes interns; the 8+ count does not. Keep this split when editing.
+9. **References section is intentionally minimal.** Section 07 has the title `Need a Reference from Me?`, an icon, and one button (`Open the reference form`). Description copy was deliberately stripped. Do not re-add explanatory paragraphs; the title carries the message and the button is the only CTA. The diplomatic framing matters because a DxFactor HR person scanning this site should read it as Nishant providing references *to others* — not as Nishant looking around for opportunities.
 
 ## Run locally
 
@@ -54,7 +59,15 @@ git commit -m "Describe the change"
 git push origin main
 ```
 
-Live URL: https://nishant-notani.github.io/ (1–2 min after push). Check the **Actions** tab on GitHub for the `pages-build-deployment` job if it doesn't appear.
+Live URL: https://nishant-notani.github.io/ (1–2 min after push, sometimes up to 10 min for CDN propagation).
+
+If the live site doesn't reflect a push:
+
+1. Check the **Actions** tab on GitHub for the latest `pages-build-deployment` run.
+   - 🟢 Green → deployed; CDN cache may still be old. Wait, then hard-refresh (`Ctrl+Shift+R`) or open in incognito.
+   - 🟡 Yellow → still running. Wait until it finishes.
+   - 🔴 Red → click in to read the error. Common cause: the submodule trap below.
+2. If still wrong after a green deploy + 10 minutes, force a rebuild: Settings → Pages → switch Source to "None" → save → switch back to "Deploy from a branch / main / root" → save.
 
 ## Section layout (index.html, in order)
 
@@ -67,7 +80,7 @@ Live URL: https://nishant-notani.github.io/ (1–2 min after push). Check the **
 7. **Skills (#04)** — 8 categorized groups (Languages, AWS, Azure, Data Platforms, Databases, Orchestration, BI, Web/API).
 8. **Certifications (#05)** — DP-700, DP-203 (no scores on the site; just "Certified · date").
 9. **Awards (#06)** — 4 DxFactor awards + AWS quiz win.
-10. **References (#07)** — minimal section: title "Need a Reference from Me?" + icon + "Open the reference form" button only. Description copy was intentionally removed. Form: `https://docs.google.com/forms/d/1gs2O7cdMnhNPrs3f86rafCYJgWuZA6uIz8T3P7djS4M/viewform`.
+10. **References (#07)** — minimal section: title `Need a Reference from Me?` + icon + `Open the reference form` button only. Description copy intentionally removed (see Hard Rule #9). Form: `https://docs.google.com/forms/d/1gs2O7cdMnhNPrs3f86rafCYJgWuZA6uIz8T3P7djS4M/viewform`.
 11. **Contact (#08)** — email + LinkedIn buttons only.
 12. Footer — GitHub, LinkedIn, Email links. **No résumé link.**
 
@@ -101,14 +114,16 @@ Edit `index.html` directly. Each section is clearly labeled with an HTML comment
 
 ### Update résumé
 
-The PDFs in this repo are produced by a Python script (ReportLab). The script lives outside the repo (in the user's session-temporary outputs folder) — see commit history for the latest version if needed to rebuild. The script writes both `resume.pdf` and `Nishant Notani Resume May <month> <year>.pdf` so the user has a clean filename for sharing. **Do not link the resume from the site** (see Hard Rule #2).
+The PDFs are produced by a Python script using ReportLab. The script lives outside the repo (in the user's session-temporary outputs folder); rebuild from this CLAUDE.md if it's lost. The script writes both `resume.pdf` and `Nishant Notani Resume May <month> <year>.pdf` so the user has a clean filename for sharing. **Do not link the resume from the site** (see Hard Rule #2).
 
 If the user asks to update the resume content:
-- Title is "Lead Data Engineer" everywhere
-- Summary uses 12+ direct reports (with interns)
-- UGVCL bullet says "Ingested 1B+ raw records/day via Kafka and filtered to 50M+ records/day stored in S3 raw layer"
+- Title is "Lead Data Engineer" everywhere (header + DxFactor work entry)
+- Summary uses **12+ direct reports** (with interns) — different from the website's 8+
+- UGVCL bullet says "Ingested 1B+ raw records/day via Kafka and filtered to 50M+ records/day stored in S3 raw layer" — this preserves the per-project accuracy while the summary aggregates 1B+/day across all platforms
+- Leadership Contributions block has 4 bullets: (1) currently leading 12+ direct reports, (2) "project starter" — architect, build foundation, deliver first reports, structured KT to juniors, (3) own code reviews + Git merge/release, (4) POC → 2-year contract conversion
 - Cert scores (934, 925) are kept on the resume
 - Phone is kept on the resume
+- 2 pages, A4 page size
 
 ### Update photo
 
@@ -116,7 +131,7 @@ Replace `profile.png`. Keep it square-ish — the photo frame is `aspect-ratio: 
 
 ### Update the References section form
 
-Section 07's form URL is hard-coded in `index.html` (search for `docs.google.com/forms`). The current title is "Need a Reference from Me?" — chosen for diplomatic framing so a DxFactor HR person scanning the site reads it as Nishant providing references TO others (not Nishant looking around for opportunities). If retitling, preserve that diplomatic framing.
+Section 07's form URL is hard-coded in `index.html` (search for `docs.google.com/forms`). The current title is `Need a Reference from Me?` — chosen for diplomatic framing (see Hard Rule #9). If retitling, preserve that diplomatic framing. Do not add description paragraphs back without an explicit ask.
 
 ## Contact info policy
 
@@ -141,9 +156,62 @@ Section 07's form URL is hard-coded in `index.html` (search for `docs.google.com
 - No CI checks. Lint/format manually if making large edits.
 - No résumé link on the site (deliberate — see Hard Rule #2).
 
+## Common gotchas (from setup history)
+
+These bit us during initial setup. Document so we don't repeat:
+
+### 1. Multi-account git auth
+
+The user has two GitHub accounts: `Nishant-Notani` (personal, used for this repo) and `nishantdxfactor` (work). The first push to this repo silently used the work account's cached credentials in Windows Credential Manager and was rejected with `Permission to Nishant-Notani/... denied to nishantdxfactor`.
+
+Fix:
+- Embed the personal username in the remote URL so Git Credential Manager keys creds per-username:
+  ```
+  git remote set-url origin https://Nishant-Notani@github.com/Nishant-Notani/nishant-notani.github.io.git
+  ```
+- Set per-repo commit author so commits attribute correctly:
+  ```
+  git config user.email "<personal-email>"
+  ```
+- For long-term hygiene, use `[includeIf "gitdir:..."]` in the global `.gitconfig` to switch identities by directory.
+
+### 2. The submodule trap with `github-profile/`
+
+When the `github-profile/` folder was first added, it had a hidden `.git/` subdirectory inside it (likely from an aborted local init). Git registered the folder as a *gitlink* (mode 160000) in the index without writing any `.gitmodules` config. Subsequent pushes succeeded but every GitHub Actions `pages-build-deployment` run failed with:
+
+```
+Error: fatal: No url found for submodule path 'github-profile' in .gitmodules
+Error: The process '/usr/bin/git' failed with exit code 128
+```
+
+Fix:
+```bash
+# Remove the hidden .git inside the folder
+Remove-Item -Recurse -Force github-profile\.git
+# Detach the broken submodule pointer
+git rm --cached github-profile
+# Re-add as a regular file
+git add github-profile/README.md
+git commit -m "Replace github-profile submodule with regular folder"
+git push
+```
+
+If `git ls-files --stage github-profile` shows mode `160000`, you're hitting this. If it shows `100644 ... github-profile/README.md`, you're fine.
+
+**Prevention:** never run `git init` inside a subdirectory of a tracked repo, and check `ls -Force` for stray `.git` folders before adding new directories.
+
+### 3. GitHub Pages cache propagation
+
+After a successful build (green Actions run), the live URL can serve stale HTML for up to ~10 minutes due to CDN edge caching. Cache busters that work:
+- Hard refresh: `Ctrl+Shift+R` (forces browser to bypass its cache)
+- Incognito window
+- Append a dummy query string: `https://nishant-notani.github.io/?v=2`
+
+If still stale after 10 minutes, the build probably failed silently — check the Actions tab. The raw file content at `https://raw.githubusercontent.com/Nishant-Notani/nishant-notani.github.io/main/index.html` is the source of truth and bypasses Pages CDN.
+
 ## GitHub setup notes
 
 - The user has two GitHub accounts: `Nishant-Notani` (personal, used for this repo) and `nishantdxfactor` (work). Do not assume credentials.
-- The repo's remote is `https://github.com/Nishant-Notani/nishant-notani.github.io.git`.
+- The repo's remote is `https://github.com/Nishant-Notani/nishant-notani.github.io.git` (or with the `Nishant-Notani@` auth prefix — see Common Gotcha #1).
 - Local commits must be authored under the personal account's email; the global git config may point to the work email, so use `git config user.email <personal-email>` per-repo if needed.
-- The site at https://github.com/Nishant-Notani/Nishant-Notani is the *profile README* repo (separate from this one). Its source lives in `github-profile/README.md` here for reference.
+- The site at https://github.com/Nishant-Notani/Nishant-Notani is the *profile README* repo (separate from this one). Its source lives in `github-profile/README.md` here for reference. Setup: create empty repo on github.com named exactly `Nishant-Notani`, paste the README content via the web UI, commit.
