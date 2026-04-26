@@ -22,7 +22,7 @@
 
 I'm a **Lead Data Engineer** at **DxFactor**, based in Ahmedabad, India. I design end-to-end data platforms — from raw ingestion to business-facing dashboards — for enterprise and government clients.
 
-Currently leading **12+ direct reports** (data engineers, analysts, and interns), while serving as the technical project lead on **3–4 concurrent cross-functional engagements** (typical project teams of 6–8 spanning engineering, business analysis, and client stakeholders).
+Currently **leading the entire data engineering team** at DxFactor, while serving as the technical project lead on **3–4 concurrent cross-functional engagements** (typical project teams of 6–8 spanning engineering, business analysis, and client stakeholders).
 
 I operate as a "project starter" — I architect the solution, build the foundation, deliver the first reports, then conduct structured KT to junior engineers for independent handoff.
 
@@ -33,7 +33,7 @@ I operate as a "project starter" — I architect the solution, build the foundat
 ```text
 🏗️  Real-time & batch lakehouses on AWS, Azure & Microsoft Fabric
 📊  1B+ records / day  ·  1,000+ pipelines  ·  500+ dashboards
-👥  Lead a team of 12+ data engineers, analysts, and interns
+👥  Lead the entire data engineering team at DxFactor
 🎓  2x Microsoft Certified  (DP-700, DP-203)
 🏆  4+ company awards for technical excellence and leadership
 ```

@@ -34,10 +34,11 @@ Pure static site. No build step, no framework, no package.json.
 5. **No build tooling.** Do not introduce npm, Vite, Tailwind compilation, etc. GitHub Pages here is zero-config. If a third-party library is needed, load it via CDN in `index.html`.
 6. **No browser storage assumptions for new features.** `localStorage` is fine (used for theme), but don't depend on it for required functionality — fall back gracefully.
 7. **Cert exam scores (934/925) are intentionally hidden on the website but kept on the resume.** The site shows "DP-700 Certified" / "DP-203 Certified" as cred pills and "Certified · Mar 2026 / Mar 2025" on the cert cards — no scores. The resume PDF keeps the scores. Don't propagate scores to the website.
-8. **Two team-size numbers are deliberately different and must not be cross-contaminated:**
-   - **Website:** "8+ direct reports" (data engineers and analysts).
-   - **Resume:** "12+ direct reports (data engineers, analysts, and interns)".
-   The 12+ count includes interns; the 8+ count does not. Keep this split when editing.
+8. **Team-leadership wording is deliberate and different across documents:**
+   - **Website:** *"Currently leading the entire data team — data engineers and analysts — at DxFactor"*. No specific count exposed.
+   - **Resume:** *"Currently leading the entire data engineering team at DxFactor"*. No composition breakdown, no count.
+   - **GitHub profile README:** mirrors the resume framing.
+   The phrase **"X+ direct reports"** has been deliberately removed from all surfaces — the user found it weak. Do not re-introduce a numeric direct-reports phrasing without an explicit ask. The metric strip on the website is the only place a count appears: `8+ / data warehouse projects led` (this is project-led count, *not* people-led).
 9. **References section is intentionally minimal.** Section 07 has the title `Need a Reference from Me?`, an icon, and one button (`Open the reference form`). Description copy was deliberately stripped. Do not re-add explanatory paragraphs; the title carries the message and the button is the only CTA. The diplomatic framing matters because a DxFactor HR person scanning this site should read it as Nishant providing references *to others* — not as Nishant looking around for opportunities.
 
 ## Run locally
@@ -73,7 +74,7 @@ If the live site doesn't reflect a push:
 
 1. Header / nav (sticky)
 2. **Hero** — animated typing, profile photo (clean, no floating badges), credential pills on the text side ("DP-700 Certified", "DP-203 Certified", "5.5+ yrs experience"), single CTA ("Get in touch"), social icons (GitHub / LinkedIn / Email).
-3. **Metric strip** (under hero) — five numbers: `8+ team members led` · `1,000+ pipelines built` · `1B+ records processed/day` · `500+ dashboards delivered` · `4+ company awards`.
+3. **Metric strip** (under hero) — five numbers: `8+ data warehouse projects led` · `1,000+ pipelines built` · `1B+ records processed/day` · `500+ dashboards delivered` · `4+ company awards`.
 4. **About (#01)** — three paragraphs: leadership scope, career stats, "project starter" closer. Includes the "Quick facts" card on the right.
 5. **Experience (#02)** — vertical timeline. DxFactor (Lead Data Engineer 2024–Present, with sub-projects: Microsoft Fabric DW, Fivetran/Snowflake/Iceberg, UGVCL, Synapse), Data Engineer 2023–2024, Infosenseglobal 2021–2023.
 6. **Featured Projects (#03)** — four project cards (UGVCL, Enterprise Gym Platform, Microsoft Fabric DW, Mlsense).
@@ -91,7 +92,8 @@ These are the canonical values. If they change, update *all* the places listed:
 | Number | Where it appears |
 |---|---|
 | 5.5+ years | Hero subtitle, hero cred pill, About paragraph, About card "Quick facts", `<meta description>`, OG/Twitter |
-| 8+ direct reports | Hero subtitle, About paragraph, metric strip ("team members led" label), `<meta>` tags |
+| 8+ data warehouse projects led | Metric strip only (the team-leadership statement on hero/about no longer carries a count) |
+| "the entire data team" framing | Hero subtitle, About paragraph, `<meta>` tags |
 | 1,000+ pipelines | Hero subtitle, About paragraph, metric strip, `<meta>` tags |
 | 1B+ records/day | Hero subtitle, About paragraph, metric strip, `<meta>` tags |
 | 500+ dashboards | Hero subtitle, About paragraph, metric strip, `<meta>` tags |
@@ -118,9 +120,9 @@ The PDFs are produced by a Python script using ReportLab. The script lives outsi
 
 If the user asks to update the resume content:
 - Title is "Lead Data Engineer" everywhere (header + DxFactor work entry)
-- Summary uses **12+ direct reports** (with interns) — different from the website's 8+
+- Summary says **"leading the entire data engineering team at DxFactor"** — no count, no composition breakdown
 - UGVCL bullet says "Ingested 1B+ raw records/day via Kafka and filtered to 50M+ records/day stored in S3 raw layer" — this preserves the per-project accuracy while the summary aggregates 1B+/day across all platforms
-- Leadership Contributions block has 4 bullets: (1) currently leading 12+ direct reports, (2) "project starter" — architect, build foundation, deliver first reports, structured KT to juniors, (3) own code reviews + Git merge/release, (4) POC → 2-year contract conversion
+- Leadership Contributions block has 4 bullets: (1) currently leading the entire data engineering team across concurrent projects, (2) "project starter" — architect, build foundation, deliver first reports, structured KT to juniors, (3) own code reviews + Git merge/release, (4) POC → 2-year contract conversion
 - Cert scores (934, 925) are kept on the resume
 - Phone is kept on the resume
 - 2 pages, A4 page size
