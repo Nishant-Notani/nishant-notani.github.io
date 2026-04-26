@@ -4,7 +4,9 @@ Guidance for Claude Code (and any AI agent) when working in this repo.
 
 ## Project
 
-Personal portfolio site for **Nishant Notani**, a Lead Data Engineer. Hosted on GitHub Pages from this repo. The repo is named `nishant-notani.github.io`, which makes GitHub Pages serve it from the root domain `https://nishant-notani.github.io/`.
+Personal portfolio site for **Nishant Notani**, a **Lead Data Engineer** at DxFactor. Hosted on GitHub Pages from this repo. The repo is named `nishant-notani.github.io`, which makes GitHub Pages serve it from the root domain `https://nishant-notani.github.io/`.
+
+GitHub username: **`Nishant-Notani`** (case-sensitive on GitHub display; URLs are case-insensitive).
 
 ## Stack
 
@@ -13,17 +15,25 @@ Pure static site. No build step, no framework, no package.json.
 - `index.html` — single page; all sections live here.
 - `styles.css` — all styling. CSS custom properties for theming. Light is default; `[data-theme="dark"]` overrides for dark mode.
 - `script.js` — vanilla JS. Theme toggle (persists to localStorage), animated typing in hero, IntersectionObserver scroll-reveal, mobile nav.
-- `resume.pdf` — public résumé. Linked from hero CTA and footer.
 - `profile.png` — hero photo.
 - `.nojekyll` — empty file that disables Jekyll on GitHub Pages so files starting with `_` are not hidden.
 - `robots.txt`, `sitemap.xml` — SEO.
+- `resume.pdf` and `Nishant Notani Resume May 2026.pdf` — résumé files. **NOT linked from the public site** (deliberate). They live in the repo for personal use; the user shares the dated copy directly via email/LinkedIn.
+- `github-profile/README.md` — the GitHub *profile* README (for `github.com/Nishant-Notani/Nishant-Notani`, the special profile repo). Not part of this site, just stored alongside it for convenience.
 
 ## Hard rules
 
-1. **Job title is "Lead Data Engineer", never "Senior Data Engineer".** The user was promoted; the resume PDF still says Senior, but every reference on the live site must say Lead. If updating the résumé file, keep this rule.
-2. **Don't break local references.** All asset paths in `index.html` are relative (`resume.pdf`, `profile.png`, `styles.css`, `script.js`). Keep them at the repo root.
-3. **No build tooling.** Do not introduce npm, Vite, Tailwind compilation, etc. The point of GitHub Pages here is zero-config deploys. If a third-party library is needed, load it via CDN in `index.html`.
-4. **No browser storage assumptions for new features.** `localStorage` is fine (used for theme), but don't depend on it for required functionality — fall back gracefully.
+1. **Job title is "Lead Data Engineer", never "Senior Data Engineer".** The user was promoted. Every reference on the live site and in any new document must say "Lead Data Engineer". The current PDFs in this repo already use the correct title.
+2. **No résumé link on the public site.** The footer used to have a "Résumé" link — it was deliberately removed. Do not re-add a link to `resume.pdf` from `index.html` (header, hero, footer, or any section) without an explicit ask. The PDFs stay in the repo for the user's own access; visitors don't see them.
+3. **Phone number is NOT on the website.** Email and LinkedIn only. The phone number IS on the resume PDF (private send) but never on the site.
+4. **Don't break local references.** All asset paths in `index.html` are relative (`profile.png`, `styles.css`, `script.js`). Keep them at the repo root.
+5. **No build tooling.** Do not introduce npm, Vite, Tailwind compilation, etc. GitHub Pages here is zero-config. If a third-party library is needed, load it via CDN in `index.html`.
+6. **No browser storage assumptions for new features.** `localStorage` is fine (used for theme), but don't depend on it for required functionality — fall back gracefully.
+7. **Cert exam scores (934/925) are intentionally hidden on the website but kept on the resume.** The site shows "DP-700 Certified" / "DP-203 Certified" as cred pills and "Certified · Mar 2026 / Mar 2025" on the cert cards — no scores. The resume PDF keeps the scores. Don't propagate scores to the website.
+8. **Two team-size numbers are deliberately different and must not be cross-contaminated:**
+   - **Website:** "8+ direct reports" (data engineers and analysts).
+   - **Resume:** "12+ direct reports (data engineers, analysts, and interns)".
+   The 12+ count includes interns; the 8+ count does not. Keep this split when editing.
 
 ## Run locally
 
@@ -49,15 +59,31 @@ Live URL: https://nishant-notani.github.io/ (1–2 min after push). Check the **
 ## Section layout (index.html, in order)
 
 1. Header / nav (sticky)
-2. Hero — animated typing, photo with floating credential badges, metric strip
-3. About — short bio + quick-facts card
-4. Experience — vertical timeline (DxFactor: Lead/Senior/Data, then Infosenseglobal)
-5. Featured Projects — UGVCL, Enterprise Gym Platform (Fivetran+Snowflake+Iceberg), Microsoft Fabric DW, Mlsense
-6. Skills — 8 categorized groups
-7. Certifications — DP-700 (934/1000), DP-203 (925/1000)
-8. Awards — 4 DxFactor awards + AWS quiz win
-9. Contact — email + LinkedIn only (phone deliberately hidden)
-10. Footer
+2. **Hero** — animated typing, profile photo (clean, no floating badges), credential pills on the text side ("DP-700 Certified", "DP-203 Certified", "5.5+ yrs experience"), single CTA ("Get in touch"), social icons (GitHub / LinkedIn / Email).
+3. **Metric strip** (under hero) — five numbers: `8+ team members led` · `1,000+ pipelines built` · `1B+ records processed/day` · `500+ dashboards delivered` · `4+ company awards`.
+4. **About (#01)** — three paragraphs: leadership scope, career stats, "project starter" closer. Includes the "Quick facts" card on the right.
+5. **Experience (#02)** — vertical timeline. DxFactor (Lead Data Engineer 2024–Present, with sub-projects: Microsoft Fabric DW, Fivetran/Snowflake/Iceberg, UGVCL, Synapse), Data Engineer 2023–2024, Infosenseglobal 2021–2023.
+6. **Featured Projects (#03)** — four project cards (UGVCL, Enterprise Gym Platform, Microsoft Fabric DW, Mlsense).
+7. **Skills (#04)** — 8 categorized groups (Languages, AWS, Azure, Data Platforms, Databases, Orchestration, BI, Web/API).
+8. **Certifications (#05)** — DP-700, DP-203 (no scores on the site; just "Certified · date").
+9. **Awards (#06)** — 4 DxFactor awards + AWS quiz win.
+10. **References (#07)** — minimal section: title "Need a Reference from Me?" + icon + "Open the reference form" button only. Description copy was intentionally removed. Form: `https://docs.google.com/forms/d/1gs2O7cdMnhNPrs3f86rafCYJgWuZA6uIz8T3P7djS4M/viewform`.
+11. **Contact (#08)** — email + LinkedIn buttons only.
+12. Footer — GitHub, LinkedIn, Email links. **No résumé link.**
+
+## Key numbers used across the site
+
+These are the canonical values. If they change, update *all* the places listed:
+
+| Number | Where it appears |
+|---|---|
+| 5.5+ years | Hero subtitle, hero cred pill, About paragraph, About card "Quick facts", `<meta description>`, OG/Twitter |
+| 8+ direct reports | Hero subtitle, About paragraph, metric strip ("team members led" label), `<meta>` tags |
+| 1,000+ pipelines | Hero subtitle, About paragraph, metric strip, `<meta>` tags |
+| 1B+ records/day | Hero subtitle, About paragraph, metric strip, `<meta>` tags |
+| 500+ dashboards | Hero subtitle, About paragraph, metric strip, `<meta>` tags |
+| 4+ company awards | Hero subtitle, About paragraph, metric strip, `<meta>` tags |
+| 2x Microsoft Certified | Hero subtitle (in copy), About paragraph, cred pills (broken into two: DP-700 + DP-203) |
 
 ## Common tasks
 
@@ -75,26 +101,49 @@ Edit `index.html` directly. Each section is clearly labeled with an HTML comment
 
 ### Update résumé
 
-Replace `resume.pdf` at the repo root with the new file (keep the filename). The hero "Download résumé" button and footer link both point to `/resume.pdf`.
+The PDFs in this repo are produced by a Python script (ReportLab). The script lives outside the repo (in the user's session-temporary outputs folder) — see commit history for the latest version if needed to rebuild. The script writes both `resume.pdf` and `Nishant Notani Resume May <month> <year>.pdf` so the user has a clean filename for sharing. **Do not link the resume from the site** (see Hard Rule #2).
+
+If the user asks to update the resume content:
+- Title is "Lead Data Engineer" everywhere
+- Summary uses 12+ direct reports (with interns)
+- UGVCL bullet says "Ingested 1B+ raw records/day via Kafka and filtered to 50M+ records/day stored in S3 raw layer"
+- Cert scores (934, 925) are kept on the resume
+- Phone is kept on the resume
 
 ### Update photo
 
 Replace `profile.png`. Keep it square-ish — the photo frame is `aspect-ratio: 1 / 1` and uses `object-fit: cover`, so non-square images will crop to center.
 
+### Update the References section form
+
+Section 07's form URL is hard-coded in `index.html` (search for `docs.google.com/forms`). The current title is "Need a Reference from Me?" — chosen for diplomatic framing so a DxFactor HR person scanning the site reads it as Nishant providing references TO others (not Nishant looking around for opportunities). If retitling, preserve that diplomatic framing.
+
 ## Contact info policy
 
-Public on the site: email (`nishantnotani.nn@gmail.com`), LinkedIn, GitHub.
-**Not** on the site: phone number. If asked to add it, confirm with the user first — public phone numbers attract spam.
+**Public on the site:** email (`nishantnotani.nn@gmail.com`), LinkedIn (`https://www.linkedin.com/in/nishant-notani-79b719172`), GitHub (`https://github.com/Nishant-Notani`).
+
+**NOT on the site:**
+- Phone number (kept on the resume only — public phone numbers attract spam)
+- Resume PDF link (file exists in repo but is unlinked; user shares manually)
 
 ## SEO notes
 
 - `<title>`, meta description, Open Graph, Twitter card, JSON-LD Person schema all set in `index.html` `<head>`.
 - `sitemap.xml` lists the homepage; update it if multi-page is ever introduced.
 - The site targets the search query "Nishant Notani Lead Data Engineer" — keep that phrase in the title, h1 area, and About copy.
+- JSON-LD `sameAs` includes LinkedIn and GitHub. Email is in `email` field. The schema `jobTitle` is "Lead Data Engineer".
 
 ## Known not-implemented (intentional)
 
 - No analytics (no Google Analytics / Plausible). Add only if user requests.
-- No contact form. Email + LinkedIn buttons only.
+- No contact form. Email + LinkedIn buttons only. (The Google Form in the References section is for *incoming reference requests*, not for general contact.)
 - No blog. Site is single-page.
 - No CI checks. Lint/format manually if making large edits.
+- No résumé link on the site (deliberate — see Hard Rule #2).
+
+## GitHub setup notes
+
+- The user has two GitHub accounts: `Nishant-Notani` (personal, used for this repo) and `nishantdxfactor` (work). Do not assume credentials.
+- The repo's remote is `https://github.com/Nishant-Notani/nishant-notani.github.io.git`.
+- Local commits must be authored under the personal account's email; the global git config may point to the work email, so use `git config user.email <personal-email>` per-repo if needed.
+- The site at https://github.com/Nishant-Notani/Nishant-Notani is the *profile README* repo (separate from this one). Its source lives in `github-profile/README.md` here for reference.
