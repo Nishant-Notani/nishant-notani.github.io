@@ -34,11 +34,9 @@ Pure static site. No build step, no framework, no package.json.
 5. **No build tooling.** Do not introduce npm, Vite, Tailwind compilation, etc. GitHub Pages here is zero-config. If a third-party library is needed, load it via CDN in `index.html`.
 6. **No browser storage assumptions for new features.** `localStorage` is fine (used for theme), but don't depend on it for required functionality — fall back gracefully.
 7. **Cert exam scores (934/925) are intentionally hidden on the website but kept on the resume.** The site shows "DP-700 Certified" / "DP-203 Certified" as cred pills and "Certified · Mar 2026 / Mar 2025" on the cert cards — no scores. The resume PDF keeps the scores. Don't propagate scores to the website.
-8. **Team-leadership wording is deliberate and different across documents:**
-   - **Website:** *"Currently leading the entire data team — data engineers and analysts — at DxFactor"*. No specific count exposed.
-   - **Resume:** *"Currently leading the entire data engineering team at DxFactor"*. No composition breakdown, no count.
-   - **GitHub profile README:** mirrors the resume framing.
-   The phrase **"X+ direct reports"** has been deliberately removed from all surfaces — the user found it weak. Do not re-introduce a numeric direct-reports phrasing without an explicit ask. The metric strip on the website is the only place a count appears: `8+ / data warehouse projects led` (this is project-led count, *not* people-led).
+8. **Team-leadership wording is consistent across all surfaces:**
+   - **Website, resume, and GitHub profile README** all use the same framing: *"leading the entire data engineering team at DxFactor"*. No count, no composition breakdown.
+   The phrase **"X+ direct reports"** has been deliberately removed from all surfaces — the user found it weak. Do not re-introduce a numeric direct-reports phrasing or composition breakdown (e.g., "data engineers and analysts") without an explicit ask. The metric strip on the website is the only place a count appears: `8+ / data warehouse projects led` (this is project-led count, *not* people-led).
 9. **References section is intentionally minimal.** Section 07 has the title `Need a Reference from Me?`, an icon, and one button (`Open the reference form`). Description copy was deliberately stripped. Do not re-add explanatory paragraphs; the title carries the message and the button is the only CTA. The diplomatic framing matters because a DxFactor HR person scanning this site should read it as Nishant providing references *to others* — not as Nishant looking around for opportunities.
 
 ## Run locally
