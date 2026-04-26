@@ -91,7 +91,7 @@ These are the canonical values. If they change, update *all* the places listed:
 |---|---|
 | 5.5+ years | Hero subtitle, hero cred pill, About paragraph, About card "Quick facts", `<meta description>`, OG/Twitter |
 | 8+ data warehouse projects led | Metric strip only (the team-leadership statement on hero/about no longer carries a count) |
-| "the entire data team" framing | Hero subtitle, About paragraph, `<meta>` tags |
+| "leading the entire data engineering team at DxFactor" framing | Hero subtitle, About paragraph, `<meta>` tags, resume Summary, resume Leadership bullet, GitHub profile README |
 | 1,000+ pipelines | Hero subtitle, About paragraph, metric strip, `<meta>` tags |
 | 1B+ records/day | Hero subtitle, About paragraph, metric strip, `<meta>` tags |
 | 500+ dashboards | Hero subtitle, About paragraph, metric strip, `<meta>` tags |
