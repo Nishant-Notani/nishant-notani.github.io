@@ -78,7 +78,7 @@ If the live site doesn't reflect a push:
 6. **Featured Projects (#03)** — four project cards (UGVCL, Enterprise Gym Platform, Microsoft Fabric DW, Mlsense).
 7. **Skills (#04)** — 8 categorized groups (Languages, AWS, Azure, Data Platforms, Databases, Orchestration, BI, Web/API).
 8. **Certifications (#05)** — DP-700, DP-203 (no scores on the site; just "Certified · date").
-9. **Awards (#06)** — 4 DxFactor awards + AWS quiz win.
+9. **Awards (#06)** — 4 DxFactor awards (AWS quiz win deliberately removed from site).
 10. **References (#07)** — minimal section: title `Need a Reference from Me?` + icon + `Open the reference form` button only. Description copy intentionally removed (see Hard Rule #9). Form: `https://docs.google.com/forms/d/1gs2O7cdMnhNPrs3f86rafCYJgWuZA6uIz8T3P7djS4M/viewform`.
 11. **Contact (#08)** — email + LinkedIn buttons only.
 12. Footer — GitHub, LinkedIn, Email links. **No résumé link.**
